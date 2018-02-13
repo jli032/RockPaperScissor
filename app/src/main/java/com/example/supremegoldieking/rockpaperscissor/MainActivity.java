@@ -1,5 +1,6 @@
 package com.example.supremegoldieking.rockpaperscissor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //If the player wins.
+                Intent winIntent = new Intent(getApplicationContext(), WinActivity.class);
+                startActivity(winIntent);
             }
         });
     }
