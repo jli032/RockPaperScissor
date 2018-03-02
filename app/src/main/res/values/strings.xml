@@ -2,5 +2,5 @@
     <string name="app_name">RockPaperScissor</string>
     <string name="rock_name">Rock</string>
     <string name="paper_name">Paper</string>
-    <string name="scissor_name">Scissor</string>
+    <string name="scissor_name">Scissors</string>
 </resources>

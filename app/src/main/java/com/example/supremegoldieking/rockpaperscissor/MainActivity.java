@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Random;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,16 +13,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Random rand = new Random();
-        int compChoice = rand.nextInt(3) + 1;
-
         Button rockButton = findViewById(R.id.rockButton);
         rockButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //If the player wins.
                 Intent winIntent = new Intent(getApplicationContext(), WinActivity.class);
+                winIntent.putExtra("playerChoice", "Rock");
+                startActivity(winIntent);
+            }
+        });
+
+        Button paperButton = findViewById(R.id.paperButton);
+        paperButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent winIntent = new Intent(getApplicationContext(), WinActivity.class);
+                winIntent.putExtra("playerChoice", "Paper");
+                startActivity(winIntent);
+            }
+        });
+
+        Button scissorButton = findViewById(R.id.scissorButton);
+        scissorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent winIntent = new Intent(getApplicationContext(), WinActivity.class);
+                winIntent.putExtra("playerChoice", "Scissors");
                 startActivity(winIntent);
             }
         });
