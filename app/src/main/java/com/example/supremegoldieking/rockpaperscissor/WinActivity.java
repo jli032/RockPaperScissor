@@ -2,6 +2,7 @@ package com.example.supremegoldieking.rockpaperscissor;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -60,6 +61,10 @@ public class WinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
 
+        //Add back button
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         String playerString = "";
         Random rand = new Random();
         String compChoice = decodeChoice(String.valueOf(rand.nextInt(3) + 1));
@@ -77,5 +82,17 @@ public class WinActivity extends AppCompatActivity {
 
         TextView resultView = findViewById(R.id.ResultView);
         resultView.setText(whoWin(playerString, compChoice));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            //Ends the activity
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
